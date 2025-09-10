@@ -1,0 +1,165 @@
+<div class="task-list-container">
+  <!-- Encabezado con estadísticas -->
+  <div class="header-section">
+    <mat-card class="stats-card">
+      <mat-card-content>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <mat-icon class="stat-icon total">assignment</mat-icon>
+            <div class="stat-info">
+              <span class="stat-number">{{
+                taskService.totalTasksCount()
+              }}</span>
+              <span class="stat-label">Total</span>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <mat-icon class="stat-icon pending">schedule</mat-icon>
+            <div class="stat-info">
+              <span class="stat-number">{{
+                taskService.pendingTasksCount()
+              }}</span>
+              <span class="stat-label">Pendientes</span>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <mat-icon class="stat-icon completed">check_circle</mat-icon>
+            <div class="stat-info">
+              <span class="stat-number">{{
+                taskService.completedTasksCount()
+              }}</span>
+              <span class="stat-label">Completadas</span>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <mat-icon class="stat-icon progress">donut_large</mat-icon>
+            <div class="stat-info">
+              <span class="stat-number">{{ getCompletionPercentage() }}%</span>
+              <span class="stat-label">Progreso</span>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Formulario para crear tareas -->
+  <div class="form-section">
+    <app-task-form (taskCreated)="onTaskCreated($event)"></app-task-form>
+  </div>
+
+  <!-- Controles de filtrado -->
+  <div class="controls-section">
+    <mat-card class="controls-card">
+      <mat-card-content>
+        <div class="controls-header">
+          <h3>
+            <mat-icon>filter_list</mat-icon>
+            Filtrar Tareas
+          </h3>
+        </div>
+
+        <mat-button-toggle-group
+          [value]="currentFilter()"
+          (change)="setFilter($event.value)"
+          class="filter-toggles"
+        >
+          <mat-button-toggle value="all">
+            <mat-icon>list</mat-icon>
+            Todas
+            <mat-chip class="filter-chip">{{
+              taskService.totalTasksCount()
+            }}</mat-chip>
+          </mat-button-toggle>
+
+          <mat-button-toggle value="pending">
+            <mat-icon>schedule</mat-icon>
+            Pendientes
+            <mat-chip class="filter-chip pending">{{
+              taskService.pendingTasksCount()
+            }}</mat-chip>
+          </mat-button-toggle>
+
+          <mat-button-toggle value="completed">
+            <mat-icon>check_circle</mat-icon>
+            Completadas
+            <mat-chip class="filter-chip completed">{{
+              taskService.completedTasksCount()
+            }}</mat-chip>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <!-- Acciones adicionales -->
+        <div class="additional-actions">
+          <button
+            mat-stroked-button
+            color="warn"
+            (click)="clearAllTasks()"
+            [disabled]="taskService.totalTasksCount() === 0"
+          >
+            <mat-icon>clear_all</mat-icon>
+            Limpiar Todo
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Lista de tareas -->
+  <div class="tasks-section">
+    <div class="section-header">
+      <h2>
+        <mat-icon>{{ getFilterIcon() }}</mat-icon>
+        {{ getFilterTitle() }}
+        <mat-chip class="count-chip">{{ getFilteredTasks().length }}</mat-chip>
+      </h2>
+    </div>
+
+    <!-- Estado de carga -->
+    <div *ngIf="isLoading" class="loading-state">
+      <mat-progress-spinner mode="indeterminate" diameter="50">
+      </mat-progress-spinner>
+      <p>Cargando tareas...</p>
+    </div>
+
+    <!-- Lista de tareas -->
+    <div *ngIf="!isLoading" class="tasks-list">
+      <!-- Estado vacío -->
+      <div *ngIf="getFilteredTasks().length === 0" class="empty-state">
+        <mat-card class="empty-card">
+          <mat-card-content>
+            <div class="empty-content">
+              <mat-icon class="empty-icon">{{ getEmptyStateIcon() }}</mat-icon>
+              <h3>{{ getEmptyStateTitle() }}</h3>
+              <p>{{ getEmptyStateMessage() }}</p>
+
+              <button
+                *ngIf="currentFilter() !== 'all'"
+                mat-raised-button
+                color="primary"
+                (click)="setFilter('all')"
+              >
+                <mat-icon>list</mat-icon>
+                Ver Todas las Tareas
+              </button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <!-- Tareas existentes -->
+      <div *ngIf="getFilteredTasks().length > 0" class="tasks-container">
+        <app-task-item
+          *ngFor="let task of getFilteredTasks(); trackBy: trackByTaskId"
+          [task]="task"
+          (taskToggled)="onTaskToggled($event)"
+          (taskDeleted)="onTaskDeleted($event)"
+          class="task-item-wrapper"
+        ></app-task-item>
+      </div>
+    </div>
+  </div>
+</div>
