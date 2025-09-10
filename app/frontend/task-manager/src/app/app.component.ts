@@ -3,7 +3,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { TaskListComponent } from './components/task-list.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
 
 /**
  * Componente Principal de la Aplicación
@@ -14,12 +14,6 @@ import { TaskListComponent } from './components/task-list.component';
  *
  * @component AppComponent
  * @author osmar lópez
- *
- * @example
- * ```html
- * <!-- Se renderiza automáticamente como root component -->
- * <app-root></app-root>
- * ```
  */
 @Component({
   selector: 'app-root',
@@ -127,42 +121,6 @@ import { TaskListComponent } from './components/task-list.component';
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 16px;
-      }
-
-      /* Sección de bienvenida */
-      .welcome-section {
-        text-align: center;
-        padding: 40px 20px;
-        background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
-        margin: 20px -16px;
-        border-radius: 12px;
-      }
-
-      .welcome-title {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        font-size: 2.2rem;
-        font-weight: 300;
-        margin: 0 0 12px 0;
-        color: #1976d2;
-      }
-
-      .welcome-title mat-icon {
-        font-size: 2.2rem;
-        width: 2.2rem;
-        height: 2.2rem;
-        color: #ff9800;
-      }
-
-      .welcome-subtitle {
-        font-size: 1.1rem;
-        color: #666;
-        margin: 0;
-        max-width: 600px;
-        margin: 0 auto;
-        line-height: 1.5;
       }
 
       /* Footer */
