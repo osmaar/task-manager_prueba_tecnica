@@ -1,0 +1,1473 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>task-manager documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">task-manager documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  TaskItemComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/task-item/task-item.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente Item de Tarea</p>
+<p>Un componente standalone que muestra una tarea individual con características interactivas.
+Soporta alternar completado de tarea, edición y eliminación con estilo Material Design.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-task-item</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>DatePipe</code>
+                            <code>NgClass</code>
+                            <code>TitleCasePipe</code>
+                            <code>NgIf</code>
+                            <code>MatCardModule</code>
+                            <code>MatButtonModule</code>
+                            <code>MatIconModule</code>
+                            <code>MatCheckboxModule</code>
+                            <code>MatChipsModule</code>
+                            <code>MatTooltipModule</code>
+                            <code>MatMenuModule</code>
+                            <code>MatDividerModule</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./task-item.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./task-item.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isLoading" >isLoading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#taskService" >taskService</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getPriorityIcon" >getPriorityIcon</a>
+                            </li>
+                            <li>
+                                <a href="#getPriorityText" >getPriorityText</a>
+                            </li>
+                            <li>
+                                <a href="#getPriorityTooltip" >getPriorityTooltip</a>
+                            </li>
+                            <li>
+                                <a href="#isOverdue" >isOverdue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#onDeleteTask" >onDeleteTask</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#onToggleComplete" >onToggleComplete</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#task" >task</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#taskDeleted" >taskDeleted</a>
+                            </li>
+                            <li>
+                                <a href="#taskEdit" >taskEdit</a>
+                            </li>
+                            <li>
+                                <a href="#taskToggled" >taskToggled</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="task"></a>
+                        <b>task</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Task.html" target="_self" >Task</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Required : </i>&nbsp;<b>true</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/components/task-item/task-item.component.ts:54</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Entrada: Datos de la tarea a mostrar</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="taskDeleted"></a>
+                        <b>taskDeleted</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/components/task-item/task-item.component.ts:68</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Salida: Se emite cuando se elimina la tarea</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="taskEdit"></a>
+                        <b>taskEdit</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Task.html" target="_self" >Task</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/components/task-item/task-item.component.ts:75</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Salida: Se emite cuando se solicita editar la tarea</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="taskToggled"></a>
+                        <b>taskToggled</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Task.html" target="_self" >Task</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/components/task-item/task-item.component.ts:61</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Salida: Se emite cuando se alterna el completado de la tarea</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPriorityIcon"></a>
+                    <span class="name">
+                        <span ><b>getPriorityIcon</b></span>
+                        <a href="#getPriorityIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPriorityIcon()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="161"
+                                    class="link-to-prism">src/app/components/task-item/task-item.component.ts:161</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtener icono de prioridad basado en la prioridad de la tarea</p>
+<p>``</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Nombre del icono Material para el nivel de prioridad
+``</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPriorityText"></a>
+                    <span class="name">
+                        <span ><b>getPriorityText</b></span>
+                        <a href="#getPriorityText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPriorityText()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="197"
+                                    class="link-to-prism">src/app/components/task-item/task-item.component.ts:197</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtener texto de prioridad en español</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Texto de prioridad en español</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPriorityTooltip"></a>
+                    <span class="name">
+                        <span ><b>getPriorityTooltip</b></span>
+                        <a href="#getPriorityTooltip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPriorityTooltip()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="179"
+                                    class="link-to-prism">src/app/components/task-item/task-item.component.ts:179</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtener texto del tooltip de prioridad</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Tooltip descriptivo para el nivel de prioridad</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isOverdue"></a>
+                    <span class="name">
+                        <span ><b>isOverdue</b></span>
+                        <a href="#isOverdue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isOverdue()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="145"
+                                    class="link-to-prism">src/app/components/task-item/task-item.component.ts:145</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Verificar si la tarea está vencida</p>
+<p>Compara la fecha límite de la tarea con la fecha actual para determinar si está vencida.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>True si la tarea está vencida</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDeleteTask"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>onDeleteTask</b></span>
+                        <a href="#onDeleteTask"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onDeleteTask()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="116"
+                                    class="link-to-prism">src/app/components/task-item/task-item.component.ts:116</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Eliminar la tarea actual</p>
+<p>Elimina la tarea y emite el evento taskDeleted con el ID de la tarea.
+Incluye confirmación y manejo de errores.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onToggleComplete"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>onToggleComplete</b></span>
+                        <a href="#onToggleComplete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onToggleComplete()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/app/components/task-item/task-item.component.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Alternar el estado de completado de la tarea</p>
+<p>Actualiza el estado de completado de la tarea y emite el evento taskToggled.
+Maneja el estado de carga y escenarios de error.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise que se resuelve cuando se completa el alternado</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLoading"></a>
+                    <span class="name">
+                        <span ><b>isLoading</b></span>
+                        <a href="#isLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/app/components/task-item/task-item.component.ts:81</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Estado de carga para operaciones asíncronas</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="taskService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>taskService</b></span>
+                        <a href="#taskService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TaskService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/components/task-item/task-item.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Servicio de tareas para operaciones de tareas</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, input, output, inject } from &#x27;@angular/core&#x27;;
+import { DatePipe, NgClass, TitleCasePipe, NgIf } from &#x27;@angular/common&#x27;;
+import { MatCardModule } from &#x27;@angular/material/card&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
+import { MatCheckboxModule } from &#x27;@angular/material/checkbox&#x27;;
+import { MatChipsModule } from &#x27;@angular/material/chips&#x27;;
+import { MatTooltipModule } from &#x27;@angular/material/tooltip&#x27;;
+import { MatMenuModule } from &#x27;@angular/material/menu&#x27;;
+import { MatDividerModule } from &#x27;@angular/material/divider&#x27;;
+import { Task } from &#x27;../../models/task.model&#x27;;
+import { TaskService } from &#x27;../../services/task.service&#x27;;
+
+/**
+ * Componente Item de Tarea
+ *
+ * Un componente standalone que muestra una tarea individual con características interactivas.
+ * Soporta alternar completado de tarea, edición y eliminación con estilo Material Design.
+ *
+ * @component TaskItemComponent
+ * @standalone
+ */
+@Component({
+  selector: &#x27;app-task-item&#x27;,
+  standalone: true,
+  imports: [
+    DatePipe,
+    NgClass,
+    TitleCasePipe,
+    NgIf,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatTooltipModule,
+    MatMenuModule,
+    MatDividerModule,
+  ],
+  templateUrl: &#x27;./task-item.component.html&#x27;,
+  styleUrls: [&#x27;./task-item.component.scss&#x27;],
+})
+export class TaskItemComponent {
+  /**
+   * Servicio de tareas para operaciones de tareas
+   * @private
+   */
+  private readonly taskService &#x3D; inject(TaskService);
+
+  /**
+   * Entrada: Datos de la tarea a mostrar
+   * @type {InputSignal&lt;Task&gt;}
+   */
+  readonly task &#x3D; input.required&lt;Task&gt;();
+
+  /**
+   * Salida: Se emite cuando se alterna el completado de la tarea
+   * @event taskToggled
+   * @type {OutputEmitterRef&lt;Task&gt;}
+   */
+  readonly taskToggled &#x3D; output&lt;Task&gt;();
+
+  /**
+   * Salida: Se emite cuando se elimina la tarea
+   * @event taskDeleted
+   * @type {OutputEmitterRef&lt;string&gt;}
+   */
+  readonly taskDeleted &#x3D; output&lt;string&gt;();
+
+  /**
+   * Salida: Se emite cuando se solicita editar la tarea
+   * @event taskEdit
+   * @type {OutputEmitterRef&lt;Task&gt;}
+   */
+  readonly taskEdit &#x3D; output&lt;Task&gt;();
+
+  /**
+   * Estado de carga para operaciones asíncronas
+   * @type {boolean}
+   */
+  isLoading &#x3D; false;
+
+  /**
+   * Alternar el estado de completado de la tarea
+   *
+   * Actualiza el estado de completado de la tarea y emite el evento taskToggled.
+   * Maneja el estado de carga y escenarios de error.
+   *
+   * @returns {Promise&lt;void&gt;} Promise que se resuelve cuando se completa el alternado
+   */
+  async onToggleComplete(): Promise&lt;void&gt; {
+    if (this.isLoading) return;
+
+    try {
+      this.isLoading &#x3D; true;
+      const updatedTask &#x3D; await this.taskService.toggleTaskCompletion(
+        this.task().id
+      );
+
+      if (updatedTask) {
+        this.taskToggled.emit(updatedTask);
+      }
+    } catch (error) {
+      console.error(&#x27;Error toggling task completion:&#x27;, error);
+    } finally {
+      this.isLoading &#x3D; false;
+    }
+  }
+
+  /**
+   * Eliminar la tarea actual
+   *
+   * Elimina la tarea y emite el evento taskDeleted con el ID de la tarea.
+   * Incluye confirmación y manejo de errores.
+   */
+  async onDeleteTask(): Promise&lt;void&gt; {
+    if (this.isLoading) return;
+
+    // Simple confirmation (in a real app, use a proper dialog)
+    if (!confirm(&#x60;Are you sure you want to delete &quot;${this.task().title}&quot;?&#x60;)) {
+      return;
+    }
+
+    try {
+      this.isLoading &#x3D; true;
+      const deleted &#x3D; await this.taskService.deleteTask(this.task().id);
+
+      if (deleted) {
+        this.taskDeleted.emit(this.task().id);
+      }
+    } catch (error) {
+      console.error(&#x27;Error deleting task:&#x27;, error);
+    } finally {
+      this.isLoading &#x3D; false;
+    }
+  }
+
+  /**
+   * Verificar si la tarea está vencida
+   *
+   * Compara la fecha límite de la tarea con la fecha actual para determinar si está vencida.
+   *
+   * @returns {boolean} True si la tarea está vencida
+   */
+  isOverdue(): boolean {
+    if (!this.task().dueDate || this.task().completed) {
+      return false;
+    }
+
+    const now &#x3D; new Date();
+    const dueDate &#x3D; new Date(this.task().dueDate!);
+    return dueDate &lt; now;
+  }
+
+  /**
+   * Obtener icono de prioridad basado en la prioridad de la tarea
+   *
+   * @returns {string} Nombre del icono Material para el nivel de prioridad
+  &#x60;&#x60;
+   */
+  getPriorityIcon(): string {
+    switch (this.task().priority) {
+      case &#x27;high&#x27;:
+        return &#x27;keyboard_arrow_up&#x27;;
+      case &#x27;medium&#x27;:
+        return &#x27;remove&#x27;;
+      case &#x27;low&#x27;:
+        return &#x27;keyboard_arrow_down&#x27;;
+      default:
+        return &#x27;remove&#x27;;
+    }
+  }
+
+  /**
+   * Obtener texto del tooltip de prioridad
+   *
+   * @returns {string} Tooltip descriptivo para el nivel de prioridad
+   */
+  getPriorityTooltip(): string {
+    switch (this.task().priority) {
+      case &#x27;high&#x27;:
+        return &#x27;Alta prioridad de la tarea&#x27;;
+      case &#x27;medium&#x27;:
+        return &#x27;Prioridad media de la tarea&#x27;;
+      case &#x27;low&#x27;:
+        return &#x27;Baja prioridad de la tarea&#x27;;
+      default:
+        return &#x27;Prioridad de la tarea desconocida&#x27;;
+    }
+  }
+
+  /**
+   * Obtener texto de prioridad en español
+   *
+   * @returns {string} Texto de prioridad en español
+   */
+  getPriorityText(): string {
+    switch (this.task().priority) {
+      case &#x27;high&#x27;:
+        return &#x27;Alta&#x27;;
+      case &#x27;medium&#x27;:
+        return &#x27;Media&#x27;;
+      case &#x27;low&#x27;:
+        return &#x27;Baja&#x27;;
+      default:
+        return &#x27;Desconocida&#x27;;
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-card
+  class&#x3D;&quot;task-item&quot;
+  [ngClass]&#x3D;&quot;{
+    completed: task().completed,
+    &#x27;high-priority&#x27;: task().priority &#x3D;&#x3D;&#x3D; &#x27;high&#x27;,
+    &#x27;medium-priority&#x27;: task().priority &#x3D;&#x3D;&#x3D; &#x27;medium&#x27;,
+    &#x27;low-priority&#x27;: task().priority &#x3D;&#x3D;&#x3D; &#x27;low&#x27;
+  }&quot;
+&gt;
+  &lt;mat-card-content class&#x3D;&quot;task-content&quot;&gt;
+    &lt;!-- Completion Checkbox --&gt;
+    &lt;div class&#x3D;&quot;task-checkbox&quot;&gt;
+      &lt;mat-checkbox
+        [checked]&#x3D;&quot;task().completed&quot;
+        (change)&#x3D;&quot;onToggleComplete()&quot;
+        [disabled]&#x3D;&quot;isLoading&quot;
+        color&#x3D;&quot;primary&quot;
+        matTooltip&#x3D;&quot;Mark as {{
+          task().completed ? &#x27;Incompleta&#x27; : &#x27;Completada&#x27;
+        }}&quot;
+      &gt;&lt;/mat-checkbox&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Task Information --&gt;
+    &lt;div class&#x3D;&quot;task-info&quot;&gt;
+      &lt;div class&#x3D;&quot;task-header&quot;&gt;
+        &lt;h3
+          class&#x3D;&quot;task-title&quot;
+          [ngClass]&#x3D;&quot;{ &#x27;completed-text&#x27;: task().completed }&quot;
+        &gt;
+          {{ task().title }}
+        &lt;/h3&gt;
+
+        &lt;!-- Priority Chip --&gt;
+        &lt;mat-chip-set&gt;
+          &lt;mat-chip
+            [ngClass]&#x3D;&quot;&#x27;priority-&#x27; + task().priority&quot;
+            [matTooltip]&#x3D;&quot;getPriorityTooltip()&quot;
+          &gt;
+            &lt;mat-icon&gt;{{ getPriorityIcon() }}&lt;/mat-icon&gt;
+            {{ getPriorityText() }}
+          &lt;/mat-chip&gt;
+        &lt;/mat-chip-set&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Task Description --&gt;
+      &lt;p
+        *ngIf&#x3D;&quot;task().description&quot;
+        class&#x3D;&quot;task-description&quot;
+        [ngClass]&#x3D;&quot;{ &#x27;completed-text&#x27;: task().completed }&quot;
+      &gt;
+        {{ task().description }}
+      &lt;/p&gt;
+
+      &lt;!-- Task Metadata --&gt;
+      &lt;div class&#x3D;&quot;task-metadata&quot;&gt;
+        &lt;div class&#x3D;&quot;metadata-item&quot;&gt;
+          &lt;mat-icon class&#x3D;&quot;metadata-icon&quot;&gt;schedule&lt;/mat-icon&gt;
+          &lt;span class&#x3D;&quot;metadata-text&quot;&gt;
+            Creada: {{ task().createdAt | date : &quot;MMM dd, yyyy&quot; }}
+          &lt;/span&gt;
+        &lt;/div&gt;
+
+        &lt;div
+          *ngIf&#x3D;&quot;task().dueDate&quot;
+          class&#x3D;&quot;metadata-item due-date&quot;
+          [ngClass]&#x3D;&quot;{ overdue: isOverdue() }&quot;
+        &gt;
+          &lt;mat-icon class&#x3D;&quot;metadata-icon&quot;&gt;event&lt;/mat-icon&gt;
+          &lt;span class&#x3D;&quot;metadata-text&quot;&gt;
+            Fecha: {{ task().dueDate | date : &quot;MMM dd, yyyy&quot; }}
+          &lt;/span&gt;
+          &lt;mat-icon
+            *ngIf&#x3D;&quot;isOverdue()&quot;
+            class&#x3D;&quot;warning-icon&quot;
+            matTooltip&#x3D;&quot;La tarea está atrasada&quot;
+          &gt;
+            warning
+          &lt;/mat-icon&gt;
+        &lt;/div&gt;
+
+        &lt;div
+          *ngIf&#x3D;&quot;task().updatedAt !&#x3D;&#x3D; task().createdAt&quot;
+          class&#x3D;&quot;metadata-item&quot;
+        &gt;
+          &lt;mat-icon class&#x3D;&quot;metadata-icon&quot;&gt;update&lt;/mat-icon&gt;
+          &lt;span class&#x3D;&quot;metadata-text&quot;&gt;
+            Actualizado:
+            {{ task().updatedAt | date : &quot;MMM dd, yyyy HH:mm&quot; }}
+          &lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Task Actions --&gt;
+    &lt;div class&#x3D;&quot;task-actions&quot;&gt;
+      &lt;button
+        mat-icon-button
+        [matMenuTriggerFor]&#x3D;&quot;taskMenu&quot;
+        matTooltip&#x3D;&quot;Opciones de tarea&quot;
+        [disabled]&#x3D;&quot;isLoading&quot;
+      &gt;
+        &lt;mat-icon&gt;more_vert&lt;/mat-icon&gt;
+      &lt;/button&gt;
+
+      &lt;!-- Task Menu --&gt;
+      &lt;mat-menu #taskMenu&#x3D;&quot;matMenu&quot;&gt;
+        &lt;button
+          mat-menu-item
+          (click)&#x3D;&quot;onToggleComplete()&quot;
+          [disabled]&#x3D;&quot;isLoading&quot;
+        &gt;
+          &lt;mat-icon&gt;{{ task().completed ? &quot;undo&quot; : &quot;check&quot; }}&lt;/mat-icon&gt;
+          &lt;span&gt;{{
+            task().completed ? &quot;Marcar Incompleta&quot; : &quot;Marcar Completa&quot;
+          }}&lt;/span&gt;
+        &lt;/button&gt;
+
+        &lt;mat-divider&gt;&lt;/mat-divider&gt;
+
+        &lt;button
+          mat-menu-item
+          (click)&#x3D;&quot;onDeleteTask()&quot;
+          class&#x3D;&quot;delete-action&quot;
+          [disabled]&#x3D;&quot;isLoading&quot;
+        &gt;
+          &lt;mat-icon&gt;delete&lt;/mat-icon&gt;
+          &lt;span&gt;Eliminar Tarea&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/mat-menu&gt;
+
+      &lt;!-- Quick Actions --&gt;
+      &lt;button
+        mat-icon-button
+        color&#x3D;&quot;primary&quot;
+        (click)&#x3D;&quot;onToggleComplete()&quot;
+        [disabled]&#x3D;&quot;isLoading&quot;
+        [matTooltip]&#x3D;&quot;
+          task().completed ? &#x27;Marcar como incompleta&#x27; : &#x27;Marcar como terminada&#x27;
+        &quot;
+      &gt;
+        &lt;mat-icon&gt;{{ task().completed ? &quot;undo&quot; : &quot;check&quot; }}&lt;/mat-icon&gt;
+      &lt;/button&gt;
+
+      &lt;button
+        mat-icon-button
+        color&#x3D;&quot;warn&quot;
+        (click)&#x3D;&quot;onDeleteTask()&quot;
+        [disabled]&#x3D;&quot;isLoading&quot;
+        matTooltip&#x3D;&quot;Eliminar tarea&quot;
+      &gt;
+        &lt;mat-icon&gt;delete&lt;/mat-icon&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/mat-card-content&gt;
+&lt;/mat-card&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./task-item.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.task-item {
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.task-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.task-item.completed {
+  opacity: 0.8;
+  background-color: #f5f5f5;
+}
+
+.task-item.high-priority {
+  border-left-color: #f44336;
+}
+
+.task-item.medium-priority {
+  border-left-color: #ff9800;
+}
+
+.task-item.low-priority {
+  border-left-color: #4caf50;
+}
+
+.task-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+}
+
+.task-checkbox {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.task-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  gap: 16px;
+}
+
+.task-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  word-break: break-word;
+  color: #ffffff;
+}
+
+.completed-text {
+  text-decoration: line-through;
+  color: #000000;
+}
+
+.task-description {
+  margin: 0 0 12px 0;
+  color: #f0f0f0;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.task-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.85rem;
+  color: #e0e0e0;
+}
+
+.metadata-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.metadata-icon {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  color: #ffffff;
+}
+
+.metadata-text {
+  white-space: nowrap;
+}
+
+.due-date.overdue {
+  color: #f44336;
+  font-weight: 500;
+}
+
+.warning-icon {
+  color: #f44336;
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.task-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.task-actions button {
+  color: #ffffff;
+}
+
+.task-actions .mat-mdc-icon-button {
+  color: #ffffff;
+}
+
+.delete-action {
+  color: #f44336 !important;
+}
+
+.delete-action mat-icon {
+  color: #f44336 !important;
+}
+
+.priority-high {
+  background-color: #ef9a9a !important;
+  color: #212121 !important;
+}
+
+.priority-medium {
+  background-color: #ffcc80 !important;
+  color: #212121 !important;
+}
+
+.priority-low {
+  background-color: #a5d6a7 !important;
+  color: #212121 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .task-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .task-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .task-metadata {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .task-actions {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+/* Animation for completion state */
+.task-item.completed .task-title,
+.task-item.completed .task-description {
+  transition: all 0.3s ease;
+}
+
+/* Loading state */
+.task-item[disabled] {
+  opacity: 0.6;
+  pointer-events: none;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-card  class="task-item"  [ngClass]="{    completed: task().completed,    \'high-priority\': task().priority === \'high\',    \'medium-priority\': task().priority === \'medium\',    \'low-priority\': task().priority === \'low\'  }">  <mat-card-content class="task-content">    <!-- Completion Checkbox -->    <div class="task-checkbox">      <mat-checkbox        [checked]="task().completed"        (change)="onToggleComplete()"        [disabled]="isLoading"        color="primary"        matTooltip="Mark as {{          task().completed ? \'Incompleta\' : \'Completada\'        }}"      ></mat-checkbox>    </div>    <!-- Task Information -->    <div class="task-info">      <div class="task-header">        <h3          class="task-title"          [ngClass]="{ \'completed-text\': task().completed }"        >          {{ task().title }}        </h3>        <!-- Priority Chip -->        <mat-chip-set>          <mat-chip            [ngClass]="\'priority-\' + task().priority"            [matTooltip]="getPriorityTooltip()"          >            <mat-icon>{{ getPriorityIcon() }}</mat-icon>            {{ getPriorityText() }}          </mat-chip>        </mat-chip-set>      </div>      <!-- Task Description -->      <p        *ngIf="task().description"        class="task-description"        [ngClass]="{ \'completed-text\': task().completed }"      >        {{ task().description }}      </p>      <!-- Task Metadata -->      <div class="task-metadata">        <div class="metadata-item">          <mat-icon class="metadata-icon">schedule</mat-icon>          <span class="metadata-text">            Creada: {{ task().createdAt | date : "MMM dd, yyyy" }}          </span>        </div>        <div          *ngIf="task().dueDate"          class="metadata-item due-date"          [ngClass]="{ overdue: isOverdue() }"        >          <mat-icon class="metadata-icon">event</mat-icon>          <span class="metadata-text">            Fecha: {{ task().dueDate | date : "MMM dd, yyyy" }}          </span>          <mat-icon            *ngIf="isOverdue()"            class="warning-icon"            matTooltip="La tarea está atrasada"          >            warning          </mat-icon>        </div>        <div          *ngIf="task().updatedAt !== task().createdAt"          class="metadata-item"        >          <mat-icon class="metadata-icon">update</mat-icon>          <span class="metadata-text">            Actualizado:            {{ task().updatedAt | date : "MMM dd, yyyy HH:mm" }}          </span>        </div>      </div>    </div>    <!-- Task Actions -->    <div class="task-actions">      <button        mat-icon-button        [matMenuTriggerFor]="taskMenu"        matTooltip="Opciones de tarea"        [disabled]="isLoading"      >        <mat-icon>more_vert</mat-icon>      </button>      <!-- Task Menu -->      <mat-menu #taskMenu="matMenu">        <button          mat-menu-item          (click)="onToggleComplete()"          [disabled]="isLoading"        >          <mat-icon>{{ task().completed ? "undo" : "check" }}</mat-icon>          <span>{{            task().completed ? "Marcar Incompleta" : "Marcar Completa"          }}</span>        </button>        <mat-divider></mat-divider>        <button          mat-menu-item          (click)="onDeleteTask()"          class="delete-action"          [disabled]="isLoading"        >          <mat-icon>delete</mat-icon>          <span>Eliminar Tarea</span>        </button>      </mat-menu>      <!-- Quick Actions -->      <button        mat-icon-button        color="primary"        (click)="onToggleComplete()"        [disabled]="isLoading"        [matTooltip]="          task().completed ? \'Marcar como incompleta\' : \'Marcar como terminada\'        "      >        <mat-icon>{{ task().completed ? "undo" : "check" }}</mat-icon>      </button>      <button        mat-icon-button        color="warn"        (click)="onDeleteTask()"        [disabled]="isLoading"        matTooltip="Eliminar tarea"      >        <mat-icon>delete</mat-icon>      </button>    </div>  </mat-card-content></mat-card></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'TaskFormComponent', 'selector': 'app-task-form'},{'name': 'TaskItemComponent', 'selector': 'app-task-item'},{'name': 'TaskListComponent', 'selector': 'app-task-list'},{'name': 'TemplatePlaygroundComponent', 'selector': 'template-playground-root'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'TaskItemComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'TaskItemComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -138,6 +138,16 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente Lista de Tareas</p>
+<p>Componente standalone que muestra y gestiona una lista de tareas con funcionalidades
+de filtrado, estadísticas y operaciones CRUD. Incluye formulario para crear nuevas tareas
+y maneja la visualización según diferentes filtros (todas, completadas, pendientes).</p>
+
+    </p>
 
 
 
@@ -163,7 +173,27 @@
                 <td class="col-md-9"><code>app-task-list</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgFor</code>
+                            <code>NgIf</code>
+                            <code>MatCardModule</code>
+                            <code>MatButtonModule</code>
+                            <code>MatIconModule</code>
+                            <code>MatBadgeModule</code>
+                            <code>MatChipsModule</code>
+                            <code>MatButtonToggleModule</code>
+                            <code>MatProgressSpinnerModule</code>
+                                <code><a href="../components/TaskItemComponent.html" target="_self" >TaskItemComponent</a></code>
+                                <code><a href="../components/TaskFormComponent.html" target="_self" >TaskFormComponent</a></code>
+                </td>
+            </tr>
 
 
 
@@ -188,34 +218,1490 @@
     </table>
 </section>
 
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#currentFilter" >currentFilter</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#filteredTasks" >filteredTasks</a>
+                            </li>
+                            <li>
+                                <a href="#isLoading" >isLoading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#taskService" >taskService</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#clearAllTasks" >clearAllTasks</a>
+                            </li>
+                            <li>
+                                <a href="#getCompletionPercentage" >getCompletionPercentage</a>
+                            </li>
+                            <li>
+                                <a href="#getCurrentFilter" >getCurrentFilter</a>
+                            </li>
+                            <li>
+                                <a href="#getEmptyStateIcon" >getEmptyStateIcon</a>
+                            </li>
+                            <li>
+                                <a href="#getEmptyStateMessage" >getEmptyStateMessage</a>
+                            </li>
+                            <li>
+                                <a href="#getEmptyStateTitle" >getEmptyStateTitle</a>
+                            </li>
+                            <li>
+                                <a href="#getFilteredTasks" >getFilteredTasks</a>
+                            </li>
+                            <li>
+                                <a href="#getFilterIcon" >getFilterIcon</a>
+                            </li>
+                            <li>
+                                <a href="#getFilterTitle" >getFilterTitle</a>
+                            </li>
+                            <li>
+                                <a href="#onTaskCreated" >onTaskCreated</a>
+                            </li>
+                            <li>
+                                <a href="#onTaskDeleted" >onTaskDeleted</a>
+                            </li>
+                            <li>
+                                <a href="#onTaskToggled" >onTaskToggled</a>
+                            </li>
+                            <li>
+                                <a href="#setFilter" >setFilter</a>
+                            </li>
+                            <li>
+                                <a href="#trackByTaskId" >trackByTaskId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
 
 
 
 
 
 
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearAllTasks"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>clearAllTasks</b></span>
+                        <a href="#clearAllTasks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clearAllTasks()</code>
+                </td>
+            </tr>
 
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="244"
+                                    class="link-to-prism">src/app/components/task-list/task-list.component.ts:244</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Limpia todas las tareas después de confirmación</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise que se resuelve cuando se limpian las tareas</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCompletionPercentage"></a>
+                    <span class="name">
+                        <span ><b>getCompletionPercentage</b></span>
+                        <a href="#getCompletionPercentage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCompletionPercentage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">src/app/components/task-list/task-list.component.ts:115</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Calcula el porcentaje de completitud de las tareas</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Porcentaje de tareas completadas (0-100)</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCurrentFilter"></a>
+                    <span class="name">
+                        <span ><b>getCurrentFilter</b></span>
+                        <a href="#getCurrentFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCurrentFilter()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">src/app/components/task-list/task-list.component.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene el filtro actual</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>&quot;all&quot; | &quot;pending&quot; | &quot;completed&quot;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>El filtro actualmente aplicado</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getEmptyStateIcon"></a>
+                    <span class="name">
+                        <span ><b>getEmptyStateIcon</b></span>
+                        <a href="#getEmptyStateIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getEmptyStateIcon()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="160"
+                                    class="link-to-prism">src/app/components/task-list/task-list.component.ts:160</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene el icono para el estado vacío</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Nombre del icono para mostrar cuando no hay tareas</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getEmptyStateMessage"></a>
+                    <span class="name">
+                        <span ><b>getEmptyStateMessage</b></span>
+                        <a href="#getEmptyStateMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getEmptyStateMessage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="192"
+                                    class="link-to-prism">src/app/components/task-list/task-list.component.ts:192</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene el mensaje para el estado vacío</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Mensaje descriptivo cuando no hay tareas</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getEmptyStateTitle"></a>
+                    <span class="name">
+                        <span ><b>getEmptyStateTitle</b></span>
+                        <a href="#getEmptyStateTitle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getEmptyStateTitle()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="176"
+                                    class="link-to-prism">src/app/components/task-list/task-list.component.ts:176</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene el título para el estado vacío</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Título descriptivo cuando no hay tareas</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFilteredTasks"></a>
+                    <span class="name">
+                        <span ><b>getFilteredTasks</b></span>
+                        <a href="#getFilteredTasks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFilteredTasks()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="106"
+                                    class="link-to-prism">src/app/components/task-list/task-list.component.ts:106</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene las tareas filtradas según el filtro actual</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Task.html" target="_self" >Task[]</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Array de tareas filtradas</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFilterIcon"></a>
+                    <span class="name">
+                        <span ><b>getFilterIcon</b></span>
+                        <a href="#getFilterIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFilterIcon()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="128"
+                                    class="link-to-prism">src/app/components/task-list/task-list.component.ts:128</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene el icono correspondiente al filtro actual</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Nombre del icono de Material Design</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFilterTitle"></a>
+                    <span class="name">
+                        <span ><b>getFilterTitle</b></span>
+                        <a href="#getFilterTitle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFilterTitle()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="144"
+                                    class="link-to-prism">src/app/components/task-list/task-list.component.ts:144</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene el título correspondiente al filtro actual</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Título descriptivo del filtro</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onTaskCreated"></a>
+                    <span class="name">
+                        <span ><b>onTaskCreated</b></span>
+                        <a href="#onTaskCreated"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onTaskCreated(task: <a href="../interfaces/Task.html" target="_self">Task</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="209"
+                                    class="link-to-prism">src/app/components/task-list/task-list.component.ts:209</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maneja la creación de una nueva tarea</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>task</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Task.html" target="_self" >Task</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>La tarea recién creada</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onTaskDeleted"></a>
+                    <span class="name">
+                        <span ><b>onTaskDeleted</b></span>
+                        <a href="#onTaskDeleted"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onTaskDeleted(taskId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="235"
+                                    class="link-to-prism">src/app/components/task-list/task-list.component.ts:235</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maneja la eliminación de una tarea</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>taskId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>ID de la tarea eliminada</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onTaskToggled"></a>
+                    <span class="name">
+                        <span ><b>onTaskToggled</b></span>
+                        <a href="#onTaskToggled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onTaskToggled(task: <a href="../interfaces/Task.html" target="_self">Task</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="220"
+                                    class="link-to-prism">src/app/components/task-list/task-list.component.ts:220</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maneja el cambio de estado de una tarea</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>task</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Task.html" target="_self" >Task</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>La tarea que cambió de estado</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setFilter"></a>
+                    <span class="name">
+                        <span ><b>setFilter</b></span>
+                        <a href="#setFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setFilter(filter: "all" | "pending" | "completed")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="97"
+                                    class="link-to-prism">src/app/components/task-list/task-list.component.ts:97</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Establece un nuevo filtro para las tareas</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>filter</td>
+                                            <td>
+                                                        <code>&quot;all&quot; | &quot;pending&quot; | &quot;completed&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>El filtro a aplicar (&#39;all&#39;, &#39;pending&#39;, &#39;completed&#39;)</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="trackByTaskId"></a>
+                    <span class="name">
+                        <span ><b>trackByTaskId</b></span>
+                        <a href="#trackByTaskId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>trackByTaskId(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, task: <a href="../interfaces/Task.html" target="_self">Task</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="269"
+                                    class="link-to-prism">src/app/components/task-list/task-list.component.ts:269</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Función de seguimiento para ngFor optimizada</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>index</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Índice del elemento</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>task</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Task.html" target="_self" >Task</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Objeto de tarea</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>ID único de la tarea</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentFilter"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>currentFilter</b></span>
+                        <a href="#currentFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;&#x27;all&#x27; | &#x27;pending&#x27; | &#x27;completed&#x27;&gt;(&#x27;all&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/components/task-list/task-list.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Filtro actual aplicado a las tareas</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filteredTasks"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>filteredTasks</b></span>
+                        <a href="#filteredTasks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>computed(() &#x3D;&gt; {
+    const filter &#x3D; this.currentFilter();
+    const tasks &#x3D; this.taskService.tasks();
+
+    switch (filter) {
+      case &#x27;completed&#x27;:
+        return tasks.filter((task) &#x3D;&gt; task.completed);
+      case &#x27;pending&#x27;:
+        return tasks.filter((task) &#x3D;&gt; !task.completed);
+      default:
+        return tasks;
+    }
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/components/task-list/task-list.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal computada de tareas filtradas según el filtro actual</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLoading"></a>
+                    <span class="name">
+                        <span ><b>isLoading</b></span>
+                        <a href="#isLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/components/task-list/task-list.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Estado de carga</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="taskService"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>taskService</b></span>
+                        <a href="#taskService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TaskService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/components/task-list/task-list.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Servicio de tareas inyectado</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, inject, signal, computed } from &#x27;@angular/core&#x27;;
+import { NgFor, NgIf } from &#x27;@angular/common&#x27;;
+import { MatCardModule } from &#x27;@angular/material/card&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
+import { MatBadgeModule } from &#x27;@angular/material/badge&#x27;;
+import { MatChipsModule } from &#x27;@angular/material/chips&#x27;;
+import { MatButtonToggleModule } from &#x27;@angular/material/button-toggle&#x27;;
+import { MatProgressSpinnerModule } from &#x27;@angular/material/progress-spinner&#x27;;
+import { TaskItemComponent } from &#x27;../task-item/task-item.component&#x27;;
+import { TaskFormComponent } from &#x27;../task-form/task-form.component&#x27;;
+import { Task } from &#x27;../../models/task.model&#x27;;
+import { TaskService } from &#x27;../../services/task.service&#x27;;
 
+/**
+ * Componente Lista de Tareas
+ *
+ * Componente standalone que muestra y gestiona una lista de tareas con funcionalidades
+ * de filtrado, estadísticas y operaciones CRUD. Incluye formulario para crear nuevas tareas
+ * y maneja la visualización según diferentes filtros (todas, completadas, pendientes).
+ *
+ * @component TaskListComponent
+ * @standalone
+ */
 @Component({
   selector: &#x27;app-task-list&#x27;,
-  imports: [],
+  standalone: true,
+  imports: [
+    NgFor,
+    NgIf,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatBadgeModule,
+    MatChipsModule,
+    MatButtonToggleModule,
+    MatProgressSpinnerModule,
+    TaskItemComponent,
+    TaskFormComponent,
+  ],
   templateUrl: &#x27;./task-list.component.html&#x27;,
-  styleUrl: &#x27;./task-list.component.scss&#x27;
+  styleUrl: &#x27;./task-list.component.scss&#x27;,
 })
 export class TaskListComponent {
+  /**
+   * Servicio de tareas inyectado
+   * @readonly
+   */
+  readonly taskService &#x3D; inject(TaskService);
 
+  /**
+   * Filtro actual aplicado a las tareas
+   * @type {WritableSignal&lt;string&gt;}
+   */
+  readonly currentFilter &#x3D; signal&lt;&#x27;all&#x27; | &#x27;pending&#x27; | &#x27;completed&#x27;&gt;(&#x27;all&#x27;);
+
+  /**
+   * Estado de carga
+   * @type {boolean}
+   */
+  isLoading &#x3D; false;
+
+  /**
+   * Señal computada de tareas filtradas según el filtro actual
+   * @readonly
+   * @returns {Signal&lt;Task[]&gt;} Array de tareas filtradas
+   */
+  readonly filteredTasks &#x3D; computed(() &#x3D;&gt; {
+    const filter &#x3D; this.currentFilter();
+    const tasks &#x3D; this.taskService.tasks();
+
+    switch (filter) {
+      case &#x27;completed&#x27;:
+        return tasks.filter((task) &#x3D;&gt; task.completed);
+      case &#x27;pending&#x27;:
+        return tasks.filter((task) &#x3D;&gt; !task.completed);
+      default:
+        return tasks;
+    }
+  });
+
+  /**
+   * Obtiene el filtro actual
+   *
+   * @returns {&#x27;all&#x27; | &#x27;pending&#x27; | &#x27;completed&#x27;} El filtro actualmente aplicado
+   */
+  getCurrentFilter(): &#x27;all&#x27; | &#x27;pending&#x27; | &#x27;completed&#x27; {
+    return this.currentFilter();
+  }
+
+  /**
+   * Establece un nuevo filtro para las tareas
+   *
+   * @param {string} filter - El filtro a aplicar (&#x27;all&#x27;, &#x27;pending&#x27;, &#x27;completed&#x27;)
+   * @returns {void}
+   */
+  setFilter(filter: &#x27;all&#x27; | &#x27;pending&#x27; | &#x27;completed&#x27;): void {
+    this.currentFilter.set(filter);
+  }
+
+  /**
+   * Obtiene las tareas filtradas según el filtro actual
+   *
+   * @returns {Task[]} Array de tareas filtradas
+   */
+  getFilteredTasks(): Task[] {
+    return this.filteredTasks();
+  }
+
+  /**
+   * Calcula el porcentaje de completitud de las tareas
+   *
+   * @returns {number} Porcentaje de tareas completadas (0-100)
+   */
+  getCompletionPercentage(): number {
+    const total &#x3D; this.taskService.totalTasksCount();
+    if (total &#x3D;&#x3D;&#x3D; 0) return 0;
+
+    const completed &#x3D; this.taskService.completedTasksCount();
+    return Math.round((completed / total) * 100);
+  }
+
+  /**
+   * Obtiene el icono correspondiente al filtro actual
+   *
+   * @returns {string} Nombre del icono de Material Design
+   */
+  getFilterIcon(): string {
+    switch (this.currentFilter()) {
+      case &#x27;completed&#x27;:
+        return &#x27;check_circle&#x27;;
+      case &#x27;pending&#x27;:
+        return &#x27;schedule&#x27;;
+      default:
+        return &#x27;list&#x27;;
+    }
+  }
+
+  /**
+   * Obtiene el título correspondiente al filtro actual
+   *
+   * @returns {string} Título descriptivo del filtro
+   */
+  getFilterTitle(): string {
+    switch (this.currentFilter()) {
+      case &#x27;completed&#x27;:
+        return &#x27;Tareas Completadas&#x27;;
+      case &#x27;pending&#x27;:
+        return &#x27;Tareas Pendientes&#x27;;
+      default:
+        return &#x27;Todas las Tareas&#x27;;
+    }
+  }
+
+  /**
+   * Obtiene el icono para el estado vacío
+   *
+   * @returns {string} Nombre del icono para mostrar cuando no hay tareas
+   */
+  getEmptyStateIcon(): string {
+    switch (this.currentFilter()) {
+      case &#x27;completed&#x27;:
+        return &#x27;check_circle_outline&#x27;;
+      case &#x27;pending&#x27;:
+        return &#x27;schedule&#x27;;
+      default:
+        return &#x27;assignment&#x27;;
+    }
+  }
+
+  /**
+   * Obtiene el título para el estado vacío
+   *
+   * @returns {string} Título descriptivo cuando no hay tareas
+   */
+  getEmptyStateTitle(): string {
+    switch (this.currentFilter()) {
+      case &#x27;completed&#x27;:
+        return &#x27;No hay tareas completadas&#x27;;
+      case &#x27;pending&#x27;:
+        return &#x27;No hay tareas pendientes&#x27;;
+      default:
+        return &#x27;No hay tareas&#x27;;
+    }
+  }
+
+  /**
+   * Obtiene el mensaje para el estado vacío
+   *
+   * @returns {string} Mensaje descriptivo cuando no hay tareas
+   */
+  getEmptyStateMessage(): string {
+    switch (this.currentFilter()) {
+      case &#x27;completed&#x27;:
+        return &#x27;Aún no has completado ninguna tarea. ¡Sigue trabajando!&#x27;;
+      case &#x27;pending&#x27;:
+        return &#x27;¡Excelente! Has completado todas tus tareas.&#x27;;
+      default:
+        return &#x27;Comienza agregando tu primera tarea usando el formulario superior.&#x27;;
+    }
+  }
+
+  /**
+   * Maneja la creación de una nueva tarea
+   *
+   * @param {Task} task - La tarea recién creada
+   * @returns {void}
+   */
+  onTaskCreated(task: Task): void {
+    // La tarea ya se agregó al servicio mediante el formulario
+    console.log(&#x27;Nueva tarea creada:&#x27;, task.title);
+  }
+
+  /**
+   * Maneja el cambio de estado de una tarea
+   *
+   * @param {Task} task - La tarea que cambió de estado
+   * @returns {void}
+   */
+  onTaskToggled(task: Task): void {
+    console.log(
+      &#x27;Tarea actualizada:&#x27;,
+      task.title,
+      &#x27;Completada:&#x27;,
+      task.completed
+    );
+  }
+
+  /**
+   * Maneja la eliminación de una tarea
+   *
+   * @param {string} taskId - ID de la tarea eliminada
+   * @returns {void}
+   */
+  onTaskDeleted(taskId: string): void {
+    console.log(&#x27;Tarea eliminada con ID:&#x27;, taskId);
+  }
+
+  /**
+   * Limpia todas las tareas después de confirmación
+   *
+   * @returns {Promise&lt;void&gt;} Promise que se resuelve cuando se limpian las tareas
+   */
+  async clearAllTasks(): Promise&lt;void&gt; {
+    const confirmed &#x3D; confirm(
+      &#x27;¿Estás seguro de que quieres eliminar todas las tareas? Esta acción no se puede deshacer.&#x27;
+    );
+
+    if (confirmed) {
+      try {
+        this.isLoading &#x3D; true;
+        await this.taskService.clearAllTasks();
+        console.log(&#x27;Todas las tareas han sido eliminadas&#x27;);
+      } catch (error) {
+        console.error(&#x27;Error al limpiar tareas:&#x27;, error);
+      } finally {
+        this.isLoading &#x3D; false;
+      }
+    }
+  }
+
+  /**
+   * Función de seguimiento para ngFor optimizada
+   *
+   * @param {number} index - Índice del elemento
+   * @param {Task} task - Objeto de tarea
+   * @returns {string} ID único de la tarea
+   */
+  trackByTaskId(index: number, task: Task): string {
+    return task.id;
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;task-list works!&lt;/p&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;task-list-container&quot;&gt;
+  &lt;!-- Encabezado con estadísticas --&gt;
+  &lt;div class&#x3D;&quot;header-section&quot;&gt;
+    &lt;mat-card class&#x3D;&quot;stats-card&quot;&gt;
+      &lt;mat-card-content&gt;
+        &lt;div class&#x3D;&quot;stats-grid&quot;&gt;
+          &lt;div class&#x3D;&quot;stat-item&quot;&gt;
+            &lt;mat-icon class&#x3D;&quot;stat-icon total&quot;&gt;assignment&lt;/mat-icon&gt;
+            &lt;div class&#x3D;&quot;stat-info&quot;&gt;
+              &lt;span class&#x3D;&quot;stat-number&quot;&gt;{{
+                taskService.totalTasksCount()
+              }}&lt;/span&gt;
+              &lt;span class&#x3D;&quot;stat-label&quot;&gt;Total&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;stat-item&quot;&gt;
+            &lt;mat-icon class&#x3D;&quot;stat-icon pending&quot;&gt;schedule&lt;/mat-icon&gt;
+            &lt;div class&#x3D;&quot;stat-info&quot;&gt;
+              &lt;span class&#x3D;&quot;stat-number&quot;&gt;{{
+                taskService.pendingTasksCount()
+              }}&lt;/span&gt;
+              &lt;span class&#x3D;&quot;stat-label&quot;&gt;Pendientes&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;stat-item&quot;&gt;
+            &lt;mat-icon class&#x3D;&quot;stat-icon completed&quot;&gt;check_circle&lt;/mat-icon&gt;
+            &lt;div class&#x3D;&quot;stat-info&quot;&gt;
+              &lt;span class&#x3D;&quot;stat-number&quot;&gt;{{
+                taskService.completedTasksCount()
+              }}&lt;/span&gt;
+              &lt;span class&#x3D;&quot;stat-label&quot;&gt;Completadas&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;stat-item&quot;&gt;
+            &lt;mat-icon class&#x3D;&quot;stat-icon progress&quot;&gt;donut_large&lt;/mat-icon&gt;
+            &lt;div class&#x3D;&quot;stat-info&quot;&gt;
+              &lt;span class&#x3D;&quot;stat-number&quot;&gt;{{ getCompletionPercentage() }}%&lt;/span&gt;
+              &lt;span class&#x3D;&quot;stat-label&quot;&gt;Progreso&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/mat-card-content&gt;
+    &lt;/mat-card&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Formulario para crear tareas --&gt;
+  &lt;div class&#x3D;&quot;form-section&quot;&gt;
+    &lt;app-task-form (taskCreated)&#x3D;&quot;onTaskCreated($event)&quot;&gt;&lt;/app-task-form&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Controles de filtrado --&gt;
+  &lt;div class&#x3D;&quot;controls-section&quot;&gt;
+    &lt;mat-card class&#x3D;&quot;controls-card&quot;&gt;
+      &lt;mat-card-content&gt;
+        &lt;div class&#x3D;&quot;controls-header&quot;&gt;
+          &lt;h3&gt;
+            &lt;mat-icon&gt;filter_list&lt;/mat-icon&gt;
+            Filtrar Tareas
+          &lt;/h3&gt;
+        &lt;/div&gt;
+
+        &lt;mat-button-toggle-group
+          [value]&#x3D;&quot;currentFilter()&quot;
+          (change)&#x3D;&quot;setFilter($event.value)&quot;
+          class&#x3D;&quot;filter-toggles&quot;
+        &gt;
+          &lt;mat-button-toggle value&#x3D;&quot;all&quot;&gt;
+            &lt;mat-icon&gt;list&lt;/mat-icon&gt;
+            Todas
+            &lt;mat-chip class&#x3D;&quot;filter-chip&quot;&gt;{{
+              taskService.totalTasksCount()
+            }}&lt;/mat-chip&gt;
+          &lt;/mat-button-toggle&gt;
+
+          &lt;mat-button-toggle value&#x3D;&quot;pending&quot;&gt;
+            &lt;mat-icon&gt;schedule&lt;/mat-icon&gt;
+            Pendientes
+            &lt;mat-chip class&#x3D;&quot;filter-chip pending&quot;&gt;{{
+              taskService.pendingTasksCount()
+            }}&lt;/mat-chip&gt;
+          &lt;/mat-button-toggle&gt;
+
+          &lt;mat-button-toggle value&#x3D;&quot;completed&quot;&gt;
+            &lt;mat-icon&gt;check_circle&lt;/mat-icon&gt;
+            Completadas
+            &lt;mat-chip class&#x3D;&quot;filter-chip completed&quot;&gt;{{
+              taskService.completedTasksCount()
+            }}&lt;/mat-chip&gt;
+          &lt;/mat-button-toggle&gt;
+        &lt;/mat-button-toggle-group&gt;
+
+        &lt;!-- Acciones adicionales --&gt;
+        &lt;div class&#x3D;&quot;additional-actions&quot;&gt;
+          &lt;button
+            mat-stroked-button
+            color&#x3D;&quot;warn&quot;
+            (click)&#x3D;&quot;clearAllTasks()&quot;
+            [disabled]&#x3D;&quot;taskService.totalTasksCount() &#x3D;&#x3D;&#x3D; 0&quot;
+          &gt;
+            &lt;mat-icon&gt;clear_all&lt;/mat-icon&gt;
+            Limpiar Todo
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/mat-card-content&gt;
+    &lt;/mat-card&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Lista de tareas --&gt;
+  &lt;div class&#x3D;&quot;tasks-section&quot;&gt;
+    &lt;div class&#x3D;&quot;section-header&quot;&gt;
+      &lt;h2&gt;
+        &lt;mat-icon&gt;{{ getFilterIcon() }}&lt;/mat-icon&gt;
+        {{ getFilterTitle() }}
+        &lt;mat-chip class&#x3D;&quot;count-chip&quot;&gt;{{ getFilteredTasks().length }}&lt;/mat-chip&gt;
+      &lt;/h2&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Estado de carga --&gt;
+    &lt;div *ngIf&#x3D;&quot;isLoading&quot; class&#x3D;&quot;loading-state&quot;&gt;
+      &lt;mat-progress-spinner mode&#x3D;&quot;indeterminate&quot; diameter&#x3D;&quot;50&quot;&gt;
+      &lt;/mat-progress-spinner&gt;
+      &lt;p&gt;Cargando tareas...&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Lista de tareas --&gt;
+    &lt;div *ngIf&#x3D;&quot;!isLoading&quot; class&#x3D;&quot;tasks-list&quot;&gt;
+      &lt;!-- Estado vacío --&gt;
+      &lt;div *ngIf&#x3D;&quot;getFilteredTasks().length &#x3D;&#x3D;&#x3D; 0&quot; class&#x3D;&quot;empty-state&quot;&gt;
+        &lt;mat-card class&#x3D;&quot;empty-card&quot;&gt;
+          &lt;mat-card-content&gt;
+            &lt;div class&#x3D;&quot;empty-content&quot;&gt;
+              &lt;mat-icon class&#x3D;&quot;empty-icon&quot;&gt;{{ getEmptyStateIcon() }}&lt;/mat-icon&gt;
+              &lt;h3&gt;{{ getEmptyStateTitle() }}&lt;/h3&gt;
+              &lt;p&gt;{{ getEmptyStateMessage() }}&lt;/p&gt;
+
+              &lt;button
+                *ngIf&#x3D;&quot;currentFilter() !&#x3D;&#x3D; &#x27;all&#x27;&quot;
+                mat-raised-button
+                color&#x3D;&quot;primary&quot;
+                (click)&#x3D;&quot;setFilter(&#x27;all&#x27;)&quot;
+              &gt;
+                &lt;mat-icon&gt;list&lt;/mat-icon&gt;
+                Ver Todas las Tareas
+              &lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/mat-card-content&gt;
+        &lt;/mat-card&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Tareas existentes --&gt;
+      &lt;div *ngIf&#x3D;&quot;getFilteredTasks().length &gt; 0&quot; class&#x3D;&quot;tasks-container&quot;&gt;
+        &lt;app-task-item
+          *ngFor&#x3D;&quot;let task of getFilteredTasks(); trackBy: trackByTaskId&quot;
+          [task]&#x3D;&quot;task&quot;
+          (taskToggled)&#x3D;&quot;onTaskToggled($event)&quot;
+          (taskDeleted)&#x3D;&quot;onTaskDeleted($event)&quot;
+          class&#x3D;&quot;task-item-wrapper&quot;
+        &gt;&lt;/app-task-item&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 </code></pre>
     </div>
 
@@ -245,8 +1731,8 @@ export class TaskListComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>task-list works!</p></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'TaskFormComponent', 'selector': 'app-task-form'},{'name': 'TaskItemComponent', 'selector': 'app-task-item'},{'name': 'TaskListComponent', 'selector': 'app-task-list'}];
+        var COMPONENT_TEMPLATE = '<div><div class="task-list-container">  <!-- Encabezado con estadísticas -->  <div class="header-section">    <mat-card class="stats-card">      <mat-card-content>        <div class="stats-grid">          <div class="stat-item">            <mat-icon class="stat-icon total">assignment</mat-icon>            <div class="stat-info">              <span class="stat-number">{{                taskService.totalTasksCount()              }}</span>              <span class="stat-label">Total</span>            </div>          </div>          <div class="stat-item">            <mat-icon class="stat-icon pending">schedule</mat-icon>            <div class="stat-info">              <span class="stat-number">{{                taskService.pendingTasksCount()              }}</span>              <span class="stat-label">Pendientes</span>            </div>          </div>          <div class="stat-item">            <mat-icon class="stat-icon completed">check_circle</mat-icon>            <div class="stat-info">              <span class="stat-number">{{                taskService.completedTasksCount()              }}</span>              <span class="stat-label">Completadas</span>            </div>          </div>          <div class="stat-item">            <mat-icon class="stat-icon progress">donut_large</mat-icon>            <div class="stat-info">              <span class="stat-number">{{ getCompletionPercentage() }}%</span>              <span class="stat-label">Progreso</span>            </div>          </div>        </div>      </mat-card-content>    </mat-card>  </div>  <!-- Formulario para crear tareas -->  <div class="form-section">    <app-task-form (taskCreated)="onTaskCreated($event)"></app-task-form>  </div>  <!-- Controles de filtrado -->  <div class="controls-section">    <mat-card class="controls-card">      <mat-card-content>        <div class="controls-header">          <h3>            <mat-icon>filter_list</mat-icon>            Filtrar Tareas          </h3>        </div>        <mat-button-toggle-group          [value]="currentFilter()"          (change)="setFilter($event.value)"          class="filter-toggles"        >          <mat-button-toggle value="all">            <mat-icon>list</mat-icon>            Todas            <mat-chip class="filter-chip">{{              taskService.totalTasksCount()            }}</mat-chip>          </mat-button-toggle>          <mat-button-toggle value="pending">            <mat-icon>schedule</mat-icon>            Pendientes            <mat-chip class="filter-chip pending">{{              taskService.pendingTasksCount()            }}</mat-chip>          </mat-button-toggle>          <mat-button-toggle value="completed">            <mat-icon>check_circle</mat-icon>            Completadas            <mat-chip class="filter-chip completed">{{              taskService.completedTasksCount()            }}</mat-chip>          </mat-button-toggle>        </mat-button-toggle-group>        <!-- Acciones adicionales -->        <div class="additional-actions">          <button            mat-stroked-button            color="warn"            (click)="clearAllTasks()"            [disabled]="taskService.totalTasksCount() === 0"          >            <mat-icon>clear_all</mat-icon>            Limpiar Todo          </button>        </div>      </mat-card-content>    </mat-card>  </div>  <!-- Lista de tareas -->  <div class="tasks-section">    <div class="section-header">      <h2>        <mat-icon>{{ getFilterIcon() }}</mat-icon>        {{ getFilterTitle() }}        <mat-chip class="count-chip">{{ getFilteredTasks().length }}</mat-chip>      </h2>    </div>    <!-- Estado de carga -->    <div *ngIf="isLoading" class="loading-state">      <mat-progress-spinner mode="indeterminate" diameter="50">      </mat-progress-spinner>      <p>Cargando tareas...</p>    </div>    <!-- Lista de tareas -->    <div *ngIf="!isLoading" class="tasks-list">      <!-- Estado vacío -->      <div *ngIf="getFilteredTasks().length === 0" class="empty-state">        <mat-card class="empty-card">          <mat-card-content>            <div class="empty-content">              <mat-icon class="empty-icon">{{ getEmptyStateIcon() }}</mat-icon>              <h3>{{ getEmptyStateTitle() }}</h3>              <p>{{ getEmptyStateMessage() }}</p>              <button                *ngIf="currentFilter() !== \'all\'"                mat-raised-button                color="primary"                (click)="setFilter(\'all\')"              >                <mat-icon>list</mat-icon>                Ver Todas las Tareas              </button>            </div>          </mat-card-content>        </mat-card>      </div>      <!-- Tareas existentes -->      <div *ngIf="getFilteredTasks().length > 0" class="tasks-container">        <app-task-item          *ngFor="let task of getFilteredTasks(); trackBy: trackByTaskId"          [task]="task"          (taskToggled)="onTaskToggled($event)"          (taskDeleted)="onTaskDeleted($event)"          class="task-item-wrapper"        ></app-task-item>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'TaskFormComponent', 'selector': 'app-task-form'},{'name': 'TaskItemComponent', 'selector': 'app-task-item'},{'name': 'TaskListComponent', 'selector': 'app-task-list'},{'name': 'TemplatePlaygroundComponent', 'selector': 'template-playground-root'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'TaskListComponent'};
 </script>
