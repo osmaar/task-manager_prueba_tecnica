@@ -93,199 +93,186 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content readme">
+               <div class="content overview">
                    <div class="content-data">
 
 
-<h1>Task Manager - Prueba Técnica Angular 19</h1>
-<h2>Descripción del Proyecto</h2>
-<p>Esta es una <strong>prueba técnica</strong> que consiste en crear una aplicación de lista de tareas (Task Manager) utilizando <strong>Angular 19</strong> y <strong>Angular Material</strong>.</p>
-<h3>🎯 Objetivo de la Prueba</h3>
-<p>Desarrollar una aplicación web que permita:</p>
-<ul>
-<li>✅ Agregar nuevas tareas</li>
-<li>✅ Marcar tareas como completadas</li>
-<li>❌ Eliminar tareas existentes</li>
-<li>📋 Visualizar la lista completa de tareas</li>
-</ul>
-<h3>🏗️ Arquitectura Requerida</h3>
-<h4>Componentes</h4>
-<ul>
-<li><strong><code>task-list</code></strong>: Componente para mostrar la lista de tareas</li>
-<li><strong><code>task-item</code></strong>: Componente para representar cada tarea individual</li>
-<li><strong><code>task-form</code></strong>: Componente para agregar nuevas tareas</li>
-</ul>
-<h4>Servicios</h4>
-<ul>
-<li><strong><code>task-service</code></strong>: Servicio para manejar operaciones CRUD (Crear, Leer, Actualizar, Eliminar)</li>
-</ul>
-<h4>Tecnologías</h4>
-<ul>
-<li><strong>Frontend</strong>: Angular 19</li>
-<li><strong>UI Library</strong>: Angular Material</li>
-<li><strong>Styling</strong>: SCSS</li>
-<li><strong>Documentation</strong>: Compodoc</li>
-<li><strong>Containerization</strong>: Docker</li>
-</ul>
-<hr>
-<h2>🚀 Configuración del Entorno de Desarrollo</h2>
-<h3>Prerrequisitos</h3>
-<ul>
-<li>Docker y Docker Compose instalados</li>
-<li>Git (opcional)</li>
-</ul>
-<h3>📦 Instalación y Ejecución</h3>
-<h4>1. Clonar o descargar el proyecto</h4>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">git clone &lt;repository-url&gt;
-cd prueba_angular</code></pre></div><h4>2. Levantar entorno de desarrollo con Docker</h4>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-bash"># Comando para levantar el entorno completo de desarrollo
-docker-compose up -d &amp;&amp; docker exec -it prueba_angular_frontend bash</code></pre></div><p>Este comando:</p>
-<ul>
-<li>Construye y levanta el contenedor Docker</li>
-<li>Te conecta automáticamente al contenedor para trabajar</li>
-</ul>
-<h4>3. Dentro del contenedor - Primera vez</h4>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-bash"># Crear el proyecto Angular (solo la primera vez)
-ng new task-manager --routing=true --style=scss --skip-git=true
-cd task-manager
 
-# Instalar Angular Material
-ng add &#64;angular/material
 
-# Generar componentes
-ng generate component components/task-list
-ng generate component components/task-item  
-ng generate component components/task-form
 
-# Generar servicio
-ng generate service services/task
 
-# Instalar Compodoc para documentación
-npm install -g &#64;compodoc/compodoc</code></pre></div><h4>4. Ejecutar la aplicación en desarrollo</h4>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">ng serve --host 0.0.0.0 --port 4200</code></pre></div><h4>5. Acceder a la aplicación</h4>
-<ul>
-<li><strong>Aplicación</strong>: <a href="http://localhost:4200">http://localhost:4200</a></li>
-<li><strong>Documentación</strong>: Generar con <code>compodoc -p tsconfig.json -s</code></li>
-</ul>
-<hr>
-<h2>🐳 Comandos Docker Útiles</h2>
-<h3>Comando principal de desarrollo</h3>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-bash"># Levantar entorno de desarrollo
-docker-compose up -d &amp;&amp; docker exec -it prueba_angular_frontend bash</code></pre></div><h3>Comandos adicionales</h3>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-bash"># Solo levantar contenedor
-docker-compose up -d
-
-# Entrar al contenedor manualmente
-docker exec -it prueba_angular_frontend bash
-
-# Ver logs del contenedor
-docker-compose logs -f prueba_angular_frontend
-
-# Detener servicios
-docker-compose down
-
-# Reconstruir contenedor
-docker-compose up -d --build</code></pre></div><hr>
-<h2>📁 Estructura del Proyecto</h2>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-none">prueba_angular/
-├── app/
-│   └── frontend/
-│       └── task-manager/          # Proyecto Angular
-│           ├── src/
-│           │   ├── app/
-│           │   │   ├── components/
-│           │   │   │   ├── task-list/
-│           │   │   │   ├── task-item/
-│           │   │   │   └── task-form/
-│           │   │   └── services/
-│           │   │       └── task.service.ts
-│           │   └── ...
-│           └── ...
-├── docker-compose.yml
-├── Dockerfile
-├── PruebaTécnica_Angular.pdf     # Especificaciones originales
-└── README.md</code></pre></div><hr>
-<h2>📚 Documentación con Compodoc</h2>
-<h3>Generar documentación</h3>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-bash"># Generar documentación estática
-compodoc -p tsconfig.json
-
-# Servir documentación en desarrollo
-compodoc -p tsconfig.json -s</code></pre></div><p>La documentación estará disponible en: <a href="http://localhost:8080">http://localhost:8080</a></p>
-<hr>
-<h2>🔧 Tecnologías Utilizadas</h2>
-<table class="table table-bordered compodoc-table">
-<thead>
-<tr>
-<th>Tecnología</th>
-<th>Versión</th>
-<th>Propósito</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Angular</td>
-<td>19.x</td>
-<td>Framework principal</td>
-</tr>
-<tr>
-<td>Angular Material</td>
-<td>Latest</td>
-<td>Componentes UI</td>
-</tr>
-<tr>
-<td>TypeScript</td>
-<td>Latest</td>
-<td>Lenguaje de programación</td>
-</tr>
-<tr>
-<td>SCSS</td>
-<td>-</td>
-<td>Estilos</td>
-</tr>
-<tr>
-<td>Docker</td>
-<td>-</td>
-<td>Containerización</td>
-</tr>
-<tr>
-<td>Node.js</td>
-<td>22</td>
-<td>Runtime</td>
-</tr>
-<tr>
-<td>Compodoc</td>
-<td>Latest</td>
-<td>Documentación</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2>📝 Notas de Desarrollo</h2>
-<ul>
-<li>El contenedor mantiene el proyecto persistente en <code>./app/frontend/</code></li>
-<li>Puedes instalar paquetes adicionales desde dentro del contenedor</li>
-<li>Los cambios se reflejan automáticamente gracias al volume mount</li>
-<li>El puerto 4200 está expuesto para acceso desde el host</li>
-</ul>
-<hr>
-<h2>🤝 Contribución</h2>
-<p>Este es un proyecto de prueba técnica. Para cualquier consulta o mejora:</p>
-<ol>
-<li>Fork del proyecto</li>
-<li>Crear rama para features (<code>git checkout -b feature/nueva-funcionalidad</code>)</li>
-<li>Commit de cambios (<code>git commit -am &#39;Agregar nueva funcionalidad&#39;</code>)</li>
-<li>Push a la rama (<code>git push origin feature/nueva-funcionalidad</code>)</li>
-<li>Crear Pull Request</li>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Overview</li>
 </ol>
-<hr>
-<p><strong>Desarrollado como prueba técnica - Angular 19 + Angular Material + Docker</strong></p>
+  
+<div class="text-center module-graph-container">
+    <div id="module-graph-svg">
+        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.47.0 (20210316.0004)
+ -->
+<!-- Title: dependencies Pages: 1 -->
+<svg width="841pt" height="284pt"
+ viewBox="0.00 0.00 841.00 284.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 280)">
+<title>dependencies</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-280 837,-280 837,4 -4,4"/>
+<text text-anchor="start" x="395.51" y="-42.4" font-family="Times-12" font-weight="bold" font-size="14.00">Legend</text>
+<polygon fill="#ffffb3" stroke="transparent" points="182.5,-10 182.5,-30 202.5,-30 202.5,-10 182.5,-10"/>
+<text text-anchor="start" x="206.13" y="-15.4" font-family="Times-12" font-size="14.00"> &#160;Declarations</text>
+<polygon fill="#8dd3c7" stroke="transparent" points="295.5,-10 295.5,-30 315.5,-30 315.5,-10 295.5,-10"/>
+<text text-anchor="start" x="319.23" y="-15.4" font-family="Times-12" font-size="14.00"> &#160;Module</text>
+<polygon fill="#80b1d3" stroke="transparent" points="381.5,-10 381.5,-30 401.5,-30 401.5,-10 381.5,-10"/>
+<text text-anchor="start" x="405.28" y="-15.4" font-family="Times-12" font-size="14.00"> &#160;Bootstrap</text>
+<polygon fill="#fdb462" stroke="transparent" points="478.5,-10 478.5,-30 498.5,-30 498.5,-10 478.5,-10"/>
+<text text-anchor="start" x="502.17" y="-15.4" font-family="Times-12" font-size="14.00"> &#160;Providers</text>
+<polygon fill="#fb8072" stroke="transparent" points="574.5,-10 574.5,-30 594.5,-30 594.5,-10 574.5,-10"/>
+<text text-anchor="start" x="598.23" y="-15.4" font-family="Times-12" font-size="14.00"> &#160;Exports</text>
+<g id="clust1" class="cluster">
+<title>cluster_TemplatePlaygroundModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 825,-268 825,-70 8,-70"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_TemplatePlaygroundModule_declarations</title>
+<polygon fill="none" stroke="black" points="603,-78 603,-130 817,-130 817,-78 603,-78"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_TemplatePlaygroundModule_bootstrap</title>
+<polygon fill="none" stroke="black" points="294,-208 294,-260 512,-260 512,-208 294,-208"/>
+</g>
+<g id="clust7" class="cluster">
+<title>cluster_TemplatePlaygroundModule_providers</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-130 595,-130 595,-78 16,-78"/>
+</g>
+<!-- TemplatePlaygroundComponent -->
+<g id="node1" class="node">
+<title>TemplatePlaygroundComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="809.25,-122 610.75,-122 610.75,-86 809.25,-86 809.25,-122"/>
+<text text-anchor="middle" x="710" y="-99.8" font-family="Times,serif" font-size="14.00">TemplatePlaygroundComponent</text>
+</g>
+<!-- TemplatePlaygroundModule -->
+<g id="node2" class="node">
+<title>TemplatePlaygroundModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="491.47,-187 488.47,-191 467.47,-191 464.47,-187 314.53,-187 314.53,-151 491.47,-151 491.47,-187"/>
+<text text-anchor="middle" x="403" y="-164.8" font-family="Times,serif" font-size="14.00">TemplatePlaygroundModule</text>
+</g>
+<!-- TemplatePlaygroundComponent&#45;&gt;TemplatePlaygroundModule -->
+<g id="edge1" class="edge">
+<title>TemplatePlaygroundComponent&#45;&gt;TemplatePlaygroundModule</title>
+<path fill="none" stroke="black" d="M710,-122.11C710,-141.34 710,-169 710,-169 710,-169 501.8,-169 501.8,-169"/>
+<polygon fill="black" stroke="black" points="501.8,-165.5 491.8,-169 501.8,-172.5 501.8,-165.5"/>
+</g>
+<!-- TemplatePlaygroundComponent  -->
+<g id="node3" class="node">
+<title>TemplatePlaygroundComponent </title>
+<polygon fill="#80b1d3" stroke="black" points="504.25,-252 301.75,-252 301.75,-216 504.25,-216 504.25,-252"/>
+<text text-anchor="middle" x="403" y="-229.8" font-family="Times,serif" font-size="14.00">TemplatePlaygroundComponent </text>
+</g>
+<!-- TemplatePlaygroundModule&#45;&gt;TemplatePlaygroundComponent  -->
+<g id="edge2" class="edge">
+<title>TemplatePlaygroundModule&#45;&gt;TemplatePlaygroundComponent </title>
+<path fill="none" stroke="black" stroke-dasharray="1,5" d="M403,-187.11C403,-187.11 403,-205.99 403,-205.99"/>
+<polygon fill="black" stroke="black" points="399.5,-205.99 403,-215.99 406.5,-205.99 399.5,-205.99"/>
+</g>
+<!-- HbsRenderService -->
+<g id="node4" class="node">
+<title>HbsRenderService</title>
+<ellipse fill="#fdb462" stroke="black" cx="504" cy="-104" rx="83.37" ry="18"/>
+<text text-anchor="middle" x="504" y="-99.8" font-family="Times,serif" font-size="14.00">HbsRenderService</text>
+</g>
+<!-- HbsRenderService&#45;&gt;TemplatePlaygroundModule -->
+<g id="edge3" class="edge">
+<title>HbsRenderService&#45;&gt;TemplatePlaygroundModule</title>
+<path fill="none" stroke="black" d="M456.03,-118.75C456.03,-118.75 456.03,-140.59 456.03,-140.59"/>
+<polygon fill="black" stroke="black" points="452.53,-140.59 456.03,-150.59 459.53,-140.59 452.53,-140.59"/>
+</g>
+<!-- TemplateEditorService -->
+<g id="node5" class="node">
+<title>TemplateEditorService</title>
+<ellipse fill="#fdb462" stroke="black" cx="302" cy="-104" rx="100.7" ry="18"/>
+<text text-anchor="middle" x="302" y="-99.8" font-family="Times,serif" font-size="14.00">TemplateEditorService</text>
+</g>
+<!-- TemplateEditorService&#45;&gt;TemplatePlaygroundModule -->
+<g id="edge4" class="edge">
+<title>TemplateEditorService&#45;&gt;TemplatePlaygroundModule</title>
+<path fill="none" stroke="black" d="M358.56,-119.08C358.56,-119.08 358.56,-140.76 358.56,-140.76"/>
+<polygon fill="black" stroke="black" points="355.06,-140.76 358.56,-150.76 362.06,-140.76 355.06,-140.76"/>
+</g>
+<!-- ZipExportService -->
+<g id="node6" class="node">
+<title>ZipExportService</title>
+<ellipse fill="#fdb462" stroke="black" cx="104" cy="-104" rx="79.87" ry="18"/>
+<text text-anchor="middle" x="104" y="-99.8" font-family="Times,serif" font-size="14.00">ZipExportService</text>
+</g>
+<!-- ZipExportService&#45;&gt;TemplatePlaygroundModule -->
+<g id="edge5" class="edge">
+<title>ZipExportService&#45;&gt;TemplatePlaygroundModule</title>
+<path fill="none" stroke="black" d="M104,-122.11C104,-141.34 104,-169 104,-169 104,-169 304.5,-169 304.5,-169"/>
+<polygon fill="black" stroke="black" points="304.5,-172.5 314.5,-169 304.5,-165.5 304.5,-172.5"/>
+</g>
+</g>
+</svg>
 
-
-
-
-
-
+    </div>
+    <i id="fullscreen" class="icon ion-ios-resize module-graph-fullscreen-btn" aria-hidden="true"></i>
+    <div class="btn-group size-buttons">
+        <button id="zoom-in" class="btn btn-default btn-sm">Zoom in</button>
+        <button id="reset" class="btn btn-default btn-sm">Reset</button>
+        <button id="zoom-out" class="btn btn-default btn-sm">Zoom out</button>
+    </div>
+</div>
+  
+<div class="tab-content overview">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card text-center">
+                <div class="card-block">
+                    <h4 class="card-title"><span class="icon ion-ios-archive"></span></h4>
+                    <p class="card-text">
+                        <a href="./modules.html">1 Module</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card text-center">
+                <div class="card-block">
+                    <h4 class="card-title"><span class="icon ion-md-cog"></span></h4>
+                    <p class="card-text">5 Components</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card text-center">
+                <div class="card-block">
+                    <h4 class="card-title"><span class="icon ion-md-arrow-round-down"></span></h4>
+                    <p class="card-text">4 Injectables</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card text-center">
+                <div class="card-block">
+                    <h4 class="card-title"><span class="icon ion-md-information-circle-outline"></span></h4>
+                    <p class="card-text">6 Interfaces</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card text-center">
+                <div class="card-block">
+                    <h4 class="card-title"><span class="icon ion-ios-git-branch"></span></h4>
+                    <p class="card-text">
+                        <a href="./routes.html">0 </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/libs/svg-pan-zoom.min.js"></script>
+<script src="js/svg-pan-zoom.controls.js"></script> 
 
 
 
@@ -329,7 +316,7 @@ compodoc -p tsconfig.json -s</code></pre></div><p>La documentación estará disp
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'readme';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'overview';
             var COMPODOC_CURRENT_PAGE_URL = 'index.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
