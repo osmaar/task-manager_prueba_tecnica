@@ -219,5 +219,5 @@ export class AppComponent {
    * Versión de la aplicación
    * @type {string}
    */
-  readonly applicationVersion = '1.0.0';
+  readonly applicationVersion = 'Prueba técnica Angular';
 }
