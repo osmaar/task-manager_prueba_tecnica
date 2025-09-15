@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed } from '@angular/core';
+import { Component, inject, signal, computed, viewChild } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -47,6 +47,12 @@ export class TaskListComponent {
    * @readonly
    */
   readonly taskService = inject(TaskService);
+
+  /**
+   * Referencia al componente del formulario de tareas
+   * @private
+   */
+  private readonly taskFormRef = viewChild.required(TaskFormComponent);
 
   /**
    * Filtro actual aplicado a las tareas
@@ -209,6 +215,7 @@ export class TaskListComponent {
   onTaskCreated(task: Task): void {
     // La tarea ya se agregó al servicio mediante el formulario
     console.log('Nueva tarea creada:', task.title);
+    alert(`Tarea "${task.title}" creada exitosamente`);
   }
 
   /**
@@ -234,6 +241,59 @@ export class TaskListComponent {
    */
   onTaskDeleted(taskId: string): void {
     console.log('Tarea eliminada con ID:', taskId);
+  }
+
+  /**
+   * Maneja la solicitud de edición de una tarea
+   *
+   * @param {Task} task - La tarea a editar
+   * @returns {void}
+   */
+  onTaskEdit(task: Task): void {
+    console.log('Tarea a editar:', task.title);
+    const taskForm = this.taskFormRef();
+    if (taskForm) {
+      taskForm.initializeEditMode(task);
+      this.scrollToForm();
+    }
+  }
+
+  /**
+   * Maneja la actualización exitosa de una tarea
+   *
+   * @param {Task} task - La tarea actualizada
+   * @returns {void}
+   */
+  onTaskUpdated(task: Task): void {
+    console.log('Tarea actualizada:', task.title);
+    alert(`Tarea "${task.title}" actualizada exitosamente`);
+  }
+
+  /**
+   * Maneja la cancelación de la edición
+   *
+   * @returns {void}
+   */
+  onEditCancelled(): void {
+    console.log('Edición cancelada');
+  }
+
+  /**
+   * Desplaza la página hacia el formulario de tareas
+   *
+   * @private
+   * @returns {void}
+   */
+  private scrollToForm(): void {
+    setTimeout(() => {
+      const formSection = document.querySelector('.form-section');
+      if (formSection) {
+        formSection.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start'
+        });
+      }
+    }, 100);
   }
 
   /**
