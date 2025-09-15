@@ -1,8 +1,8 @@
 <mat-card class="task-form-card">
   <mat-card-header>
     <mat-card-title class="title-custom">
-      <mat-icon>add_task</mat-icon>
-      Crear Nueva Tarea
+      <mat-icon>{{ isEditMode ? 'edit' : 'add_task' }}</mat-icon>
+      {{ isEditMode ? 'Editar Tarea' : 'Crear Nueva Tarea' }}
     </mat-card-title>
   </mat-card-header>
 
@@ -80,11 +80,12 @@
           [disabled]="taskForm.invalid || isLoading"
           class="submit-btn"
         >
-          <mat-icon>add</mat-icon>
-          {{ isLoading ? "Creando..." : "Crear Tarea" }}
+          <mat-icon>{{ isEditMode ? 'save' : 'add' }}</mat-icon>
+          {{ isLoading ? (isEditMode ? 'Guardando...' : 'Creando...') : (isEditMode ? 'Guardar Cambios' : 'Crear Tarea') }}
         </button>
 
         <button
+          *ngIf="!isEditMode"
           mat-stroked-button
           type="button"
           (click)="resetForm()"
@@ -93,6 +94,18 @@
         >
           <mat-icon>clear</mat-icon>
           Limpiar Formulario
+        </button>
+
+        <button
+          *ngIf="isEditMode"
+          mat-stroked-button
+          type="button"
+          (click)="cancelEdit()"
+          [disabled]="isLoading"
+          class="cancel-btn"
+        >
+          <mat-icon>cancel</mat-icon>
+          Cancelar Edición
         </button>
       </div>
     </form>
