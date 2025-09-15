@@ -116,6 +116,15 @@
           }}</span>
         </button>
 
+        <button
+          mat-menu-item
+          (click)="onEditTask()"
+          [disabled]="isLoading"
+        >
+          <mat-icon>edit</mat-icon>
+          <span>Editar Tarea</span>
+        </button>
+
         <mat-divider></mat-divider>
 
         <button
@@ -140,6 +149,16 @@
         "
       >
         <mat-icon>{{ task().completed ? "undo" : "check" }}</mat-icon>
+      </button>
+
+      <button
+        mat-icon-button
+        color="accent"
+        (click)="onEditTask()"
+        [disabled]="isLoading"
+        matTooltip="Editar tarea"
+      >
+        <mat-icon>edit</mat-icon>
       </button>
 
       <button
