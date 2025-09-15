@@ -173,49 +173,22 @@ prueba_angular/
 ### Generar documentación
 ```bash
 # Generar documentación estática
-compodoc -p tsconfig.json
+compodoc -p tsconfig.json -d documentation --theme gitbook
 
 # Servir documentación en desarrollo
-compodoc -p tsconfig.json -s
+compodoc -p tsconfig.json -s -d documentation --theme gitbook --port 4300
 ```
 
-La documentación estará disponible en: http://localhost:8080
-
----
-
-## 🔧 Tecnologías Utilizadas
-
-| Tecnología | Versión | Propósito |
-|------------|---------|-----------|
-| Angular | 19.x | Framework principal |
-| Angular Material | Latest | Componentes UI |
-| TypeScript | Latest | Lenguaje de programación |
-| SCSS | - | Estilos |
-| Docker | - | Containerización |
-| Node.js | 22 | Runtime |
-| Compodoc | Latest | Documentación |
+La documentación estará disponible en: http://localhost:4300
 
 ---
 
 ## 📝 Notas de Desarrollo
 
 - El contenedor mantiene el proyecto persistente en `./app/frontend/`
-- Puedes instalar paquetes adicionales desde dentro del contenedor
 - Los cambios se reflejan automáticamente gracias al volume mount
 - El puerto 4200 está expuesto para acceso desde el host
-
----
-
-## 🤝 Contribución
-
-Este es un proyecto de prueba técnica. Para cualquier consulta o mejora:
-
-1. Fork del proyecto
-2. Crear rama para features (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit de cambios (`git commit -am 'Agregar nueva funcionalidad'`)
-4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Crear Pull Request
-
+- El puerto 4300 está expuesto para acceso a la documentación
 ---
 
 **Desarrollado como prueba técnica - Angular 19 + Angular Material + Docker**
