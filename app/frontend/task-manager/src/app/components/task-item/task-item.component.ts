@@ -1,5 +1,5 @@
 import { Component, input, output, inject } from '@angular/core';
-import { DatePipe, NgClass, TitleCasePipe, NgIf } from '@angular/common';
+import { DatePipe, NgClass, NgIf } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -26,7 +26,6 @@ import { TaskService } from '../../services/task.service';
   imports: [
     DatePipe,
     NgClass,
-    TitleCasePipe,
     NgIf,
     MatCardModule,
     MatButtonModule,
@@ -105,6 +104,17 @@ export class TaskItemComponent {
     } finally {
       this.isLoading = false;
     }
+  }
+
+  /**
+   * Solicitar edición de la tarea actual
+   *
+   * Emite el evento taskEdit con la tarea a editar.
+   *
+   * @returns {void}
+   */
+  onEditTask(): void {
+    this.taskEdit.emit(this.task());
   }
 
   /**
