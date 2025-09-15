@@ -11,7 +11,7 @@
     "serve:ssr:task-manager": "node dist/task-manager/server/server.mjs",
     "compodoc": "compodoc -p tsconfig.json -d documentation --theme gitbook",
     "compodoc:serve": "compodoc -p tsconfig.json -s -d documentation --theme gitbook",
-    "compodoc:build-and-serve": "compodoc -p tsconfig.json -s -d documentation --theme gitbook --port 8080 --host 0.0.0.0",
+    "compodoc:build-and-serve": "compodoc -p tsconfig.json -s -d documentation --theme gitbook --port 4300",
     "docs": "npm run compodoc:build-and-serve"
   },
   "private": true,
