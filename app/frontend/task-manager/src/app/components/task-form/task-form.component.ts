@@ -14,7 +14,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { CreateTaskRequest } from '../../models/task.model';
+import { CreateTaskRequest, Task, UpdateTaskRequest } from '../../models/task.model';
 import { TaskService } from '../../services/task.service';
 
 /**
@@ -63,7 +63,21 @@ export class TaskFormComponent {
    * @event taskCreated
    * @type {EventEmitter<Task>}
    */
-  readonly taskCreated = output<any>();
+  readonly taskCreated = output<Task>();
+
+  /**
+   * Emisor de evento de salida para cuando una tarea se actualiza exitosamente
+   * @event taskUpdated
+   * @type {EventEmitter<Task>}
+   */
+  readonly taskUpdated = output<Task>();
+
+  /**
+   * Emisor de evento de salida para cuando se cancela la edición
+   * @event editCancelled
+   * @type {EventEmitter<void>}
+   */
+  readonly editCancelled = output<void>();
 
   /**
    * Indicador de estado de carga
@@ -72,13 +86,55 @@ export class TaskFormComponent {
   isLoading = false;
 
   /**
-   * Grupo de formulario reactivo para creación de tareas
+   * Indicador de modo de edición
+   * @type {boolean}
+   */
+  isEditMode = false;
+
+  /**
+   * ID de la tarea en edición (si aplica)
+   * @type {string | null}
+   */
+  editingTaskId: string | null = null;
+
+  /**
+   * Grupo de formulario reactivo para creación/edición de tareas
    * @type {FormGroup}
    */
   taskForm: FormGroup;
 
   constructor() {
     this.taskForm = this.initializeForm();
+  }
+
+  /**
+   * Inicializar el formulario para modo de edición con datos de tarea existente
+   *
+   * @param {Task} task - La tarea a editar
+   * @returns {void}
+   */
+  initializeEditMode(task: Task): void {
+    this.isEditMode = true;
+    this.editingTaskId = task.id;
+    
+    this.taskForm.patchValue({
+      title: task.title,
+      description: task.description || '',
+      priority: task.priority,
+      dueDate: task.dueDate || null
+    });
+  }
+
+  /**
+   * Salir del modo de edición y reiniciar el formulario
+   *
+   * @returns {void}
+   */
+  cancelEdit(): void {
+    this.isEditMode = false;
+    this.editingTaskId = null;
+    this.resetForm();
+    this.editCancelled.emit();
   }
 
   /**
@@ -117,10 +173,10 @@ export class TaskFormComponent {
   /**
    * Manejar el envío del formulario
    *
-   * Crea una nueva tarea usando los datos del formulario y emite el evento taskCreated.
+   * Crea una nueva tarea o actualiza una existente usando los datos del formulario.
    * Incluye validación del formulario y manejo del estado de carga.
    *
-   * @returns {Promise<void>} Promise que se resuelve cuando se completa la creación de la tarea
+   * @returns {Promise<void>} Promise que se resuelve cuando se completa la operación
    */
   async onSubmit(): Promise<void> {
     if (this.taskForm.valid && !this.isLoading) {
@@ -128,20 +184,37 @@ export class TaskFormComponent {
         this.isLoading = true;
 
         const formValue = this.taskForm.value;
-        const taskRequest: CreateTaskRequest = {
-          title: formValue.title.trim(),
-          description: formValue.description?.trim() || undefined,
-          priority: formValue.priority,
-          dueDate: formValue.dueDate || undefined,
-        };
 
-        const newTask = await this.taskService.createTask(taskRequest);
+        if (this.isEditMode && this.editingTaskId) {
+          // Modo edición: Actualizar tarea existente
+          const updateRequest: UpdateTaskRequest = {
+            title: formValue.title.trim(),
+            description: formValue.description?.trim() || undefined,
+            priority: formValue.priority,
+            dueDate: formValue.dueDate || undefined,
+          };
 
-        this.taskCreated.emit(newTask);
+          const updatedTask = await this.taskService.updateTask(this.editingTaskId, updateRequest);
 
-        this.resetForm();
+          if (updatedTask) {
+            this.taskUpdated.emit(updatedTask);
+            this.cancelEdit();
+          }
+        } else {
+          // Modo creación: Crear nueva tarea
+          const taskRequest: CreateTaskRequest = {
+            title: formValue.title.trim(),
+            description: formValue.description?.trim() || undefined,
+            priority: formValue.priority,
+            dueDate: formValue.dueDate || undefined,
+          };
+
+          const newTask = await this.taskService.createTask(taskRequest);
+          this.taskCreated.emit(newTask);
+          this.resetForm();
+        }
       } catch (error) {
-        console.error('Error creating task:', error);
+        console.error('Error processing task:', error);
       } finally {
         this.isLoading = false;
       }
