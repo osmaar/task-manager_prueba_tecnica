@@ -6,7 +6,7 @@ services:
     container_name: prueba_angular_frontend
     ports:
       - '4200:4200'
-      - '8080:8080'
+      - '4300:4300'
     volumes:
       - ./app/frontend:/app
     working_dir: /app
