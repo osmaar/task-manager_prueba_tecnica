@@ -46,9 +46,13 @@
     </mat-card>
   </div>
 
-  <!-- Formulario para crear tareas -->
+  <!-- Formulario para crear/editar tareas -->
   <div class="form-section">
-    <app-task-form (taskCreated)="onTaskCreated($event)"></app-task-form>
+    <app-task-form 
+      (taskCreated)="onTaskCreated($event)"
+      (taskUpdated)="onTaskUpdated($event)"
+      (editCancelled)="onEditCancelled()"
+    ></app-task-form>
   </div>
 
   <!-- Controles de filtrado -->
@@ -157,6 +161,7 @@
           [task]="task"
           (taskToggled)="onTaskToggled($event)"
           (taskDeleted)="onTaskDeleted($event)"
+          (taskEdit)="onTaskEdit($event)"
           class="task-item-wrapper"
         ></app-task-item>
       </div>
