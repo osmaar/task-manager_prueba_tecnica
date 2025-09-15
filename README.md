@@ -162,7 +162,6 @@ prueba_angular/
 │           └── ...
 ├── docker-compose.yml
 ├── Dockerfile
-├── PruebaTécnica_Angular.pdf     # Especificaciones originales
 └── README.md
 ```
 
